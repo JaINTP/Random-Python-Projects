@@ -21,13 +21,13 @@ class ConsoleWindow:
         """
         Initializes the console window, preparing it for dynamic content display and user interaction.
         """
-        self.stdscr = uc.initscr()  # Main window object
-        self.content = []  # Lines of content for display
-        self.scroll_position = 0  # Top line of content being displayed
-        self.background_thread = threading.Thread(target=self.worker_task, daemon=True)  # Background task thread
-        self.status_text = "Status: Initializing"  # Initial status bar text
-        self.quit_message = "Press Q to quit"  # Quit application instruction
-        self.__init_ui()  # Initialize UI components
+        self.stdscr = uc.initscr()
+        self.content = []
+        self.scroll_position = 0
+        self.background_thread = threading.Thread(target=self.worker_task, daemon=True)
+        self.status_text = "Status: Initializing"
+        self.quit_message = "Press Q to quit"
+        self.__init_ui()
 
     def __init_ui(self):
         """
@@ -36,7 +36,7 @@ class ConsoleWindow:
         uc.start_color()
         uc.init_pair(1, uc.COLOR_WHITE, uc.COLOR_BLUE)
         uc.clear()
-        self.height, self.width = uc.getmaxyx(self.stdscr)  # Window dimensions
+        self.height, self.width = uc.getmaxyx(self.stdscr)
         uc.noecho()
         uc.cbreak()
         uc.keypad(self.stdscr, True)
